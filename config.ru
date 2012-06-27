@@ -1,17 +1,15 @@
 require 'rubygems'
-require 'bundler'
-Bundler.setup
+require 'bundler/setup'
 
 require 'models'
 require 'routes'
 require 'bowtie'
-
-BOWTIE_AUTH = {:user => 'admin', :pass => 'secret'}
 
 map "/check" do
   run Prey::Standalone
 end
 
 map "/" do
+  BOWTIE_AUTH = {:user => 'admin', :pass => 'secret'}
   run Bowtie::Admin
 end
