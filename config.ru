@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'bundler/setup'
 
-require 'models'
-require 'routes'
+require './models'
+require './routes'
 require 'bowtie'
 
 map "/check" do
