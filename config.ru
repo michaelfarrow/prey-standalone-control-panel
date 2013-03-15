@@ -5,15 +5,15 @@ require './models'
 require './routes'
 require 'bowtie'
 
-map "/check" do
+map '/devices' do
   run Prey::Standalone
 end
 
-map "/devices" do
-  run Prey::Standalone
-end
-
-map "/" do
+map '/admin' do
   BOWTIE_AUTH = {:user => 'admin', :pass => 'secret'}
   run Bowtie::Admin
+end
+
+map '/' do
+  run Proc.new { [ 302, {'Location'=> '/admin' }, ['Redirecting...']] }
 end

@@ -2,7 +2,7 @@ require 'mongo_mapper'
 
 MongoMapper.database = ENV['mongo_db'] || 'prey_standalone_control_panel'
 
-class MyDevice
+class Device
   include MongoMapper::Document
 
   key :name, String, :required => true
