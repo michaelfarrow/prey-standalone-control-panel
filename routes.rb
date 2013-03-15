@@ -7,18 +7,14 @@ module Prey
 
   class Standalone < Sinatra::Base
 
-    get '/:id.xml' do
-      if device = MyDevice.find(params[:id])
-        content_type 'text/xml'
-        status device.missing? ? 404 : 200
-        generate_xml(device)
-      else
-        status 400 # bad request
-      end
+    get '/:id', :provides => [:xml] do
+      device_id = params[:id]
+      device_id = device_id[0..-5] if device_id[-4..-1] == ".xml"
+      build_response(device_id)
     end
 
-    get '/:id' do
-      if device = MyDevice.find(params[:id])
+    def build_response(id)
+      if device = MyDevice.find(id)
         content_type 'text/xml'
         status device.missing? ? 404 : 200
         generate_xml(device)
