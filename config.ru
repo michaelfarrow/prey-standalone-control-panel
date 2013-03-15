@@ -9,6 +9,10 @@ map "/check" do
   run Prey::Standalone
 end
 
+map "/devices" do
+  run Prey::Standalone
+end
+
 map "/" do
   BOWTIE_AUTH = {:user => 'admin', :pass => 'secret'}
   run Bowtie::Admin
