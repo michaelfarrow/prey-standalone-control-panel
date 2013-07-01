@@ -35,14 +35,14 @@ Once you've created a device on the admin panel, the check URL on the device
 should be:
 
 ```
-http://your.server.com/check/:device_id
+http://your.server.com/devices/:device_id
 ```
 
 For example, if the ID of your newly created device is 000000123456, the full
 url should look like:
 
 ```
-http://your.server.com/check/000000123456
+http://your.server.com/devices/000000123456
 ```
 
 And that's it. Your device should now start checking its state against your own
@@ -60,4 +60,4 @@ Written by Tomás Pollak.
 
 ## Legal
 
-(c) 2011 - Fork Ltd. Released under the GPLv3 license.
+(c) 2011-2013 - Fork Ltd. Released under the GPLv3 license.
