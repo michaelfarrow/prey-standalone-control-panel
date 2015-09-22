@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source tools/_functions
+
+set -e
+
+build_env="local"
+
+if [[ "$1" != "" ]];
+	then
+	build_env="$1"
+fi
+
+tools/prepare_env $build_env
+
+docker-compose run ruby bundle install --deployment

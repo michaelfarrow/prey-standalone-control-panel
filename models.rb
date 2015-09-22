@@ -1,5 +1,6 @@
 require 'mongo_mapper'
 
+MongoMapper.connection = Mongo::Connection.new(ENV['mongo_db_host'] || 'localhost')
 MongoMapper.database = ENV['mongo_db'] || 'prey_standalone_control_panel'
 
 class Device

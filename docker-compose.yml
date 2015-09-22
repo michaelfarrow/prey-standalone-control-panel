@@ -1,0 +1,11 @@
+ruby:
+  extends:
+    file: docker-compose-common.yml
+    service: ruby
+  links:
+    - db
+
+db:
+  extends:
+    file: docker-compose-common.yml
+    service: db
